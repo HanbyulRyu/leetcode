@@ -24,8 +24,8 @@ class Solution:
         for inx in range(len(s)):
             if s[inx-y: inx+1] == s[inx-y: inx+1][::-1]:
                 x, y = inx-y, y+1
-                # prxnt(s[x: x+y])
+                print(s[x: x+y])
             elif inx-y > 0 and s[inx-y-1: inx+1] == s[inx-y-1: inx+1][::-1]:
                 x, y = inx-y-1, y+2
-                # prxnt(s[x: x+y])
+                print(s[x: x+y])
         return s[x: x+y]
