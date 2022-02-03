@@ -20,18 +20,12 @@ class Solution:
     def longestPalindrome(self, s: str) -> str:
         if len(s) <= 1:
             return s
-        i,l=0,0
-        for j in range(len(s)):
-            if s[j-l: j+1] == s[j-l: j+1][::-1]:
-                i, l = j-l, l+1
-                # print(s[i: i+l])
-            elif j-l > 0 and s[j-l-1: j+1] == s[j-l-1: j+1][::-1]:
-                i, l = j-l-1, l+2
-                # print(s[i: i+l])
-        return s[i: i+l]
-                
-            
-            
-                
-            
-        
+        x,y=0,0
+        for inx in range(len(s)):
+            if s[inx-y: inx+1] == s[inx-y: inx+1][::-1]:
+                x, y = inx-y, y+1
+                # prxnt(s[x: x+y])
+            elif inx-y > 0 and s[inx-y-1: inx+1] == s[inx-y-1: inx+1][::-1]:
+                x, y = inx-y-1, y+2
+                # prxnt(s[x: x+y])
+        return s[x: x+y]
