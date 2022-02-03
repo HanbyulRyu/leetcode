@@ -22,15 +22,16 @@ class Solution:
             return s
         x,y=0,0
         for idx in range(len(s)):
-            print("index : ", idx)
+            #print("index=",idx,",x =",x,",y =",y)
+            #print("1 || s[",idx-y,":",idx+1,"] == s[",idx-y,":",idx+1,"][::-1] ->",s[idx-y: idx+1],"==",s[idx-y: idx+1][::-1])
+            #if idx-y > 0:
+                #print("2 || s[",idx-y-1,":",idx+1,"] == s[",idx-y-1,":",idx+1,"][::-1] ->",s[idx-y-1: idx+1],"==",s[idx-y-1: idx+1][::-1])
             if s[idx-y: idx+1] == s[idx-y: idx+1][::-1]:
-                print("1 : x",x,"y",y)
                 x, y = idx-y, y+1
-                print("1-1 : x",x,"y",y)
-                print("1-2 : s[",x,": ",x,"+",y,"]", s[x: x+y])
+                #print("1-1 || x =",x," y =",y)
+                #print("1-2 || s[",x,":",x,"+",y,"] = ", s[x: x+y])
             elif idx-y > 0 and s[idx-y-1: idx+1] == s[idx-y-1: idx+1][::-1]:
-                print("2 : x",x,"y",y)
                 x, y = idx-y-1, y+2
-                print("2-1 : x",x,"y",y)
-                print("2-2 : s[",x,": ",x,"+",y,"]", s[x: x+y])
+                #print("2-1 || x = ",x," y = ",y)
+                #print("2-2 || s[",x,":",x,"+",y,"] = ", s[x: x+y])
         return s[x: x+y]
