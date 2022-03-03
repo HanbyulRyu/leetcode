@@ -6,11 +6,21 @@ class Solution:
         
         for digit in digits:
             if not output:
+                # ['a'], ['b'], ['c']
                 output = letters[int(digit)]
             else:
                 mappings = []
                 for o in output:
                     for l in letters[int(digit)]:
+                        #['ad']
+                        #['ad', 'ae']
+                        #['ad', 'ae', 'af']
+                        #['ad', 'ae', 'af', 'bd']
+                        #['ad', 'ae', 'af', 'bd', 'be']
+                        #['ad', 'ae', 'af', 'bd', 'be', 'bf']
+                        #['ad', 'ae', 'af', 'bd', 'be', 'bf', 'cd']
+                        #['ad', 'ae', 'af', 'bd', 'be', 'bf', 'cd', 'ce']
+                        #['ad', 'ae', 'af', 'bd', 'be', 'bf', 'cd', 'ce', 'cf']
                         mappings.append(o+l)
                 output = mappings
 
