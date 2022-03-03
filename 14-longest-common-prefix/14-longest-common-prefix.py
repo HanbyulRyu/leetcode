@@ -13,11 +13,8 @@ class Solution:
         # 제일 짧은 문자열길이가 0 인 경우 "" 리턴
         if len(standard) <= 0:
             return ""
-    
-        print(strs)
-        print(standard)
-        # standard 기준으로 min 값 구하기
-        # ['flower', 'flight'] -> [1111, 1100]
+
+        # standard 기준으로 min 값 구하기 ['flower', 'flight'] -> [1111, 1100]
         min = 0
         for i in range(len(strs)):
             temp = ""
@@ -29,14 +26,11 @@ class Solution:
             
             if len(temp) > 0 and i == 0:
                 min = int(temp)
-                print("i", min)
             elif len(temp) > 0 and min >= int(temp):
                 min = int(temp)
-                print("elif", min)
             elif len(temp) <= 0:
                 return ""
 
-        print(min)
         # min 의 1의 개수만큼 standard 문자열에서 가져온다. 'flow' / 1100 -> 'fl'
         output = ""
         for i in range(len(str(min))):
