@@ -1,3 +1,48 @@
+# 문자열을 길이로 정렬하지 않고, 알파벳순으로 정렬하는 경우 더 빠르게 찾을 수 있다고 한다. 
+# class Solution:
+#     def longestCommonPrefix(self, strs: List[str]) -> str:
+#         if len(strs) == 1:
+#             return strs[0]
+        
+#         # 문자열이 작은 순으로 정렬 ['flow', 'flower', 'flight']
+#         strs = sorted(strs, key=len)
+        
+#         # 제일 짧은 문자열을 기준으로 계산 (prefix 이기 때문에)
+#         standard = strs[0]
+#         strs = strs[1:len(strs)]
+        
+#         # 제일 짧은 문자열길이가 0 인 경우 "" 리턴
+#         if len(standard) <= 0:
+#             return ""
+
+#         # standard 기준으로 min 값 구하기 ['flower', 'flight'] -> [1111, 1100]
+#         min = 0
+#         for i in range(len(strs)):
+#             temp = ""
+#             for s in range(len(standard)) :
+#                 if standard[s] == strs[i][s]:
+#                     temp += "1"
+#                 else:
+#                     break
+            
+#             if len(temp) > 0 and i == 0:
+#                 min = int(temp)
+#             elif len(temp) > 0 and min >= int(temp):
+#                 min = int(temp)
+#             elif len(temp) <= 0:
+#                 return ""
+
+#         # min 의 1의 개수만큼 standard 문자열에서 가져온다. 'flow' / 1100 -> 'fl'
+#         output = ""
+#         for i in range(len(str(min))):
+#             if str(min)[i] == "1":
+#                 output += standard[i]
+#             else:
+#                 break
+
+#         return output
+
+
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
         if len(strs) == 1:
@@ -15,28 +60,15 @@ class Solution:
             return ""
 
         # standard 기준으로 min 값 구하기 ['flower', 'flight'] -> [1111, 1100]
+        output = []
         min = 0
         for i in range(len(strs)):
             temp = ""
             for s in range(len(standard)) :
                 if standard[s] == strs[i][s]:
-                    temp += "1"
+                    temp += standard[s]
                 else:
                     break
-            
-            if len(temp) > 0 and i == 0:
-                min = int(temp)
-            elif len(temp) > 0 and min >= int(temp):
-                min = int(temp)
-            elif len(temp) <= 0:
-                return ""
-
-        # min 의 1의 개수만큼 standard 문자열에서 가져온다. 'flow' / 1100 -> 'fl'
-        output = ""
-        for i in range(len(str(min))):
-            if str(min)[i] == "1":
-                output += standard[i]
-            else:
-                break
-
-        return output
+            output.append(temp)
+                    
+        return sorted(output, key=len)[0]
