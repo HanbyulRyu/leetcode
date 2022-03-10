@@ -10,8 +10,6 @@ class Solution:
         position = -1
         while left < right :
             mid = left + (right - left) // 2
-            #print("left :", left, ", mid :", mid, ", right :", right)
-            #print("nums[left] :", nums[left], ", nums[mid] :", nums[mid], ", nums[right] :", nums[right-1])
             
             # left : 0 , mid : 3 , right : 6
             # nums[left] : 4 , nums[mid] : 7 , nums[right] : 2
