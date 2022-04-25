@@ -4,13 +4,9 @@ class Solution:
         
         for i in range(len(nums)):
             gap = target - nums[i]
-            j = i + 1
-            
-            while j < len(nums):
-                if nums[j] == gap:
-                    output = [i, j]
-                    break
-                j += 1
+            if gap in nums and i != nums.index(gap):
+                return [i, nums.index(gap)]
+
         
         return output
                         
