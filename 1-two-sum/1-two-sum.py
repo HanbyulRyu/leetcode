@@ -4,6 +4,3 @@ class Solution:
             gap = target - nums[i]
             if gap in nums and i != nums.index(gap):
                 return [i, nums.index(gap)]
-
-        return output
-                        
