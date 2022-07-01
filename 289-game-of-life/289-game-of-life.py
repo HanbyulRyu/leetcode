@@ -13,6 +13,7 @@ class Solution:
         for i in range(col):
             for j in range(row):
                 lives = 0
+                # 윗줄 3개 체크
                 if i > 0:
                     if j > 0 and prev[i-1][j-1]:
                         lives += 1
@@ -20,10 +21,12 @@ class Solution:
                         lives += 1
                     if j < row-1 and prev[i-1][j+1]:
                         lives += 1
+                # 양옆
                 if j > 0 and prev[i][j-1]:
                     lives += 1
                 if j < row-1 and prev[i][j+1]:
                     lives += 1
+                # 아랫줄
                 if i < col-1:
                     if j > 0 and prev[i+1][j-1]:
                         lives += 1
@@ -31,6 +34,7 @@ class Solution:
                         lives += 1
                     if j < row-1 and prev[i+1][j+1]:
                         lives += 1
+                        
                 # print(i, j, ":", lives)
                 
                 if lives < 2 or lives > 3:
