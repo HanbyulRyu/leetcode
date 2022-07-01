@@ -37,7 +37,6 @@ class Solution:
                     board[i][j] = 0
                 if lives == 3:
                     board[i][j] = 1
-                    print(i, j, ":", board[i][j])
                 
         # print(board)
         
