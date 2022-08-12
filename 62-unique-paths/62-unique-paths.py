@@ -6,11 +6,19 @@ class Solution:
             for j in range(len(grid[i])):
                 if i == 0 or j == 0:
                     grid[i][j] = 1
-                   
+       
+        # [1, 1, 1, 1, 1, 1, 1]
+        # [1, 0, 0, 0, 0, 0, 0]
+        # [1, 0, 0, 0, 0, 0, 0]
+        
         for i in range(1, len(grid)):
             for j in range(1, len(grid[i])):
                 grid[i][j] = grid[i-1][j] + grid[i][j-1]
                 
+        # [1, 1, 1, 1, 1, 1, 1]
+        # [1, 2, 3, 4, 5, 6, 7]
+        # [1, 3, 6, 10, 15, 21, 28]
+  
         return grid[m-1][n-1]
         
 #         global result
