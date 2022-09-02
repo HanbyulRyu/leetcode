@@ -6,11 +6,13 @@ class Solution:
         if amount == 0:
             return 0
 
+        # 가장 큰 수로 초기화
         t = [2**31-1]*(amount+1)
         t[0] = 0
         
         for coin in coins:
             for i in range(coin, amount+1):
+                #print(i, ':',t[i], t[i-coin]+1)
                 t[i] = min(t[i], t[i-coin]+1)
                 
         if t[amount] == (2**31-1):
